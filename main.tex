@@ -8,6 +8,7 @@
 \begin{document}
 
 \pagenumbering{roman}
+\setcounter{page}{-1}
 
 \title{PUPC}
 \author{Benjamin Chen, Michael Diao, Jonathan Huang, Jack Sun and Jason Ye}
@@ -15,10 +16,12 @@
 \maketitle
 
 \tableofcontents
+\fancyfoot{}
 
-\pagenumbering{arabic}
+\newpage
 
 \chapter{Laser and Plasma Physics}
+\pagenumbering{arabic}
 
 \section{Theory}
 \subsection{Plasma Oscillation}
@@ -29,7 +32,7 @@ Using Gauss's law on a cylindrical section of the infinite slab of ions centered
 \begin{align*}
     E\cdot 2A &= \dfrac{Q}{\epsilon_0} = \dfrac{2x_eAen_e}{\epsilon_0}\\
     \Rightarrow  F &= -e\dfrac{x_en_ee}{\epsilon_0}\\
-    \Rightarrow \dfrac{d^2x_e}{dt^2} &= -\dfrac{n_ee^2}{m_e\epsilon_0}x_e\textnormal{.}
+    \Rightarrow \dfrac{d^2x_e}{dt^2} &= -\dfrac{n_ee^2}{m_e\epsilon_0}x_e.
 \end{align*}
 This describes simple harmonic motion with period $\omega_{pl} = \sqrt{\dfrac{n_ee^2}{m_e\epsilon_0}}$.
 
@@ -73,12 +76,16 @@ This describes simple harmonic motion with period $\omega_{pl} = \sqrt{\dfrac{n_
             = \frac{1}{N},
         \]
     with equality at $p_1=p_2=\ldots=p_N$. Thus, we find that
-        \[ I = -\log\lp \prod\limits_{i=1}^{N} p_i^{p_i}\rp \leq -\log\lp\frac{1}{N}\rp, \]
+        \[
+            I = -\log\lp \prod\limits_{i=1}^{N} p_i^{p_i}\rp \leq -\log\lp\frac{1}{N}\rp,
+        \]
     and thus the maximum value of $I$ is $\log N$ as desired.
 \end{proof}
 
 Using a different base $b$ for the logarithms scales it by a factor of $\log(b)$; all of the terms have a logarithmic term of base $e$, and change of base gives us that 
-    \[\frac{\log_b(p)}{\log(p)} = \log(b).\]
+    \[
+        \frac{\log_b(p)}{\log(p)} = \log(b).
+    \]
 
 This definition of entropy obviously satisfies the second and third criteria; the equation only involves the probabilities of the outcomes, and, as shown above, the entropy is largest when all probabilities are equal.  Furthermore, the first criterion is satisfied by the fact that !!!!!NOT COMPLETED!!!!!!%what the hell
 
@@ -121,7 +128,7 @@ This definition of entropy obviously satisfies the second and third criteria; th
     \begin{align*}
         p(E_{Sys} = E_k) &= \exp(\sigma_{Sys}(E_k) \cdot \frac{1}{\zeta_2} \exp \lp - \frac{E_k}{\tau} \rp \\
         &= \frac{1}{\zeta_2} \exp \lp - \lp \frac{E_k}{\tau} - \sigma_{Sys}(E_k) \rp \rp \\
-        &= \frac{1}{\zeta_2} \exp \lp -\beta \lp E_kv - \tau \sigma_{Sys}(E_k) \rp \rp
+        &= \frac{1}{\zeta_2} \exp \lp -\beta \lp E_kv - \tau \sigma_{Sys}(E_k) \rp \rp.
     \end{align*}
     
 \subsubsection{A pause for reflection}
