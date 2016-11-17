@@ -38,6 +38,7 @@ This describes simple harmonic motion with period $\omega_{pl} = \sqrt{\dfrac{n_
 
 \subsection{The Langmuir Wave: a Warm Model for the Plasma Oscillation}
 
+$\dfrac{\partial n^\prime}{\partial t} + n_0\dfrac{\partial v^\prime}{\partial x} = 0$ %from (3)
 
 
 \chapter{Entropy and Statistical Mechanics}
@@ -119,7 +120,7 @@ This definition of entropy obviously satisfies the second and third criteria; th
         &= \sqrt{\frac{N}{2\pi \lp\frac{N^2}{4} - n^2\rp}} \cdot \lp1 - \frac{4n^2}{N^2}\rp^{-\frac{N}{2}} \cdot \lp1 - \frac{4n}{N+2n}\rp^n \\
         &= \sqrt{\frac{2}{\pi N}} \cdot \lp1 - \frac{4n^2}{N^2}\rp^{-\frac{N+1}{2}} \cdot \lp1 - \frac{4n}{N+2n}\rp^n
     \end{align*}
-    owaihgweofej0oqeh0
+    %finish
 
 \subsection{An abstract derivation of entropy in statistical mechanics}
 \subsubsection{A derivation}
@@ -128,10 +129,15 @@ This definition of entropy obviously satisfies the second and third criteria; th
     \begin{align*}
         p(E_{Sys} = E_k) &= \exp(\sigma_{Sys}(E_k) \cdot \frac{1}{\zeta_2} \exp \lp - \frac{E_k}{\tau} \rp \\
         &= \frac{1}{\zeta_2} \exp \lp - \lp \frac{E_k}{\tau} - \sigma_{Sys}(E_k) \rp \rp \\
-        &= \frac{1}{\zeta_2} \exp \lp -\beta \lp E_kv - \tau \sigma_{Sys}(E_k) \rp \rp.
+        &= \frac{1}{\zeta_2} \exp \lp -\beta \lp E_k - \tau \sigma_{Sys}(E_k) \rp \rp.
     \end{align*}
     
+\par There are two "competing" effects here -- the number of states for a given energy, and the energy itself.  On one hand, a lower energy is favored, as lowering $E_k$ will decrease the $E_k$ term in the definition of $F$.  However, energies with more states will also be favored, as increasing $\sigma_{Sys}(E_k)$ will lower the $-\tau \sigma_{Sys}(E_k)$ term in $F$.
+    
 \subsubsection{A pause for reflection}
+
+\subsection{Why is our definition of temperature reasonable?}
+\subsubsection{A physical example: magnetic spins}
 
     
 
