@@ -1,0 +1,131 @@
+\documentclass{paper}
+
+%header/footer
+\lhead{}
+\chead{}
+\rhead{}
+
+\begin{document}
+
+\pagenumbering{roman}
+
+\title{PUPC}
+\author{Benjamin Chen, Michael Diao, Jonathan Huang, Jack Sun and Jason Ye}
+\date{\today}
+\maketitle
+
+\tableofcontents
+
+\pagenumbering{arabic}
+
+\chapter{Laser and Plasma Physics}
+
+\section{Theory}
+\subsection{Plasma Oscillation}
+
+As the electrons on either side of the slab move towards the origin, the slab of ions starts to shrink. So let us denote by $x_e$ the position of an electron at $x = d$ in the initial state.
+
+Using Gauss's law on a cylindrical section of the infinite slab of ions centered at $x=0$ and whose faces lie on the planes of electrons that border the slab, we find that
+\begin{align*}
+    E\cdot 2A &= \dfrac{Q}{\epsilon_0} = \dfrac{2x_eAen_e}{\epsilon_0}\\
+    \Rightarrow  F &= -e\dfrac{x_en_ee}{\epsilon_0}\\
+    \Rightarrow \dfrac{d^2x_e}{dt^2} &= -\dfrac{n_ee^2}{m_e\epsilon_0}x_e\textnormal{.}
+\end{align*}
+This describes simple harmonic motion with period $\omega_{pl} = \sqrt{\dfrac{n_ee^2}{m_e\epsilon_0}}$.
+
+\subsection{The Langmuir Wave: a Warm Model for the Plasma Oscillation}
+
+
+
+\chapter{Entropy and Statistical Mechanics}
+\section{Entropy as information}
+\subsection{Quantifying the amount of information in the answer to a question}
+
+\par Despite the minus sign, the given definition of entropy is always non-negative; as probabilities are always no more than 1, their logs are non-positive, so the minus sign flips it back to non-negative.
+
+\begin{claim}
+    The minimum and maximum values of $I$ are $0$ and $\log N$, respectively.
+\end{claim}
+    
+\begin{proof}
+    First, we show $0$ and $\log N$ are attainable values of $I$. In the first case, consider when $p_1=1$ and all other values of $p_i$ for $2\leq i \leq N$ equal $0$. Then
+        \begin{align*}
+            I &= -\sum\limits_{i=1}^{N} p_i\log(p_i)\\
+            &= -\lp p_1\log(p_1) + \sum\limits_{i=2}^{N} p_i\log(p_i) \rp = 0.
+        \end{align*}
+    Since we previously established that $I$ is always non-negative, $I=0$ must be the minimum.
+    
+    To obtain $I=\log N$, let $p_i=\frac{1}{N}$ for all $1\leq i\leq N$. Then 
+        \[
+            I = -\sum\limits_{i=1}^{N} \frac{1}{N}\log\lp\frac{1}{N}\rp
+            = -\log\lp\frac{1}{N}\rp = \log N.
+        \]
+    Now we show that $I=\log N$ is indeed maximal. From the definition of $I$,
+        \[
+            I = -\sum\limits_{i=1}^{N} p_i\log\lp p_i \rp
+            = -\log\lp \prod\limits_{i=1}^{N} p_i^{p_i} \rp.
+        \]
+    In order to maximize $I$, we must minimize $\prod\limits_{i=1}^{N} p_i^{p_i}$. Note that, by the inequality of Geometric and Harmonic means, we have
+        \[
+            \prod\limits_{i=1}^{N}p_i^{p_i} 
+            = \lp \prod\limits_{i=1}^{N}p_i^{p_i} \rp^{\sum\limits_{i=1}^{N} p_i}
+            \geq \frac{\lp\sum\limits_{i=1}^{N} p_i\rp}{\lp\sum\limits_{i=1}^{N} \frac{p_i}{p_i}\rp}
+            = \frac{1}{N},
+        \]
+    with equality at $p_1=p_2=\ldots=p_N$. Thus, we find that
+        \[ I = -\log\lp \prod\limits_{i=1}^{N} p_i^{p_i}\rp \leq -\log\lp\frac{1}{N}\rp, \]
+    and thus the maximum value of $I$ is $\log N$ as desired.
+\end{proof}
+
+Using a different base $b$ for the logarithms scales it by a factor of $\log(b)$; all of the terms have a logarithmic term of base $e$, and change of base gives us that 
+    \[\frac{\log_b(p)}{\log(p)} = \log(b).\]
+
+This definition of entropy obviously satisfies the second and third criteria; the equation only involves the probabilities of the outcomes, and, as shown above, the entropy is largest when all probabilities are equal.  Furthermore, the first criterion is satisfied by the fact that !!!!!NOT COMPLETED!!!!!!%what the hell
+
+\section{Where does entropy show up in Statistical Mechanics?}
+\subsection{An example: rigid chain and the "force" that entropy causes}
+
+\begin{enumerate}
+    \item The free end of the chain can be at any integer position $x$ such that $-N/2 \leq x \leq N/2$.
+
+    \item A single link of the chain can either be oriented towards the negative or positive x-direction.  Thus, there are $2^N$ possible configurations for the entire chain.
+    
+    \item For the free end of the chain to lie at $x=n$, there must be $\frac{N}{2}+n$ chain segments oriented in the positive direction, and $\frac{N}{2}-n$ segments in the negative direction.  The number of ways this can happen is
+        \[\binom{N}{\frac{N}{2}-n} = \frac{N!}{\lp\frac{N}{2}-n\rp! \cdot \lp\frac{N}{2}+n\rp!}\]
+    
+    \item The probability is just the number of outcomes where $x=n$ over the total number of outcomes, so
+        \[p(x=n) = \frac{N!}{2^N \cdot \lp\frac{N}{2}-n\rp! \cdot \lp\frac{N}{2}+n\rp!}\]
+\end{enumerate}
+
+\par As there are $\binom{N}{\frac{N}{2}-n}$ different equally likely positions for the state of the chain, we have
+    \begin{align*}
+        \sigma_{sys}(x=n) &= \log\lp \frac{N!}{\lp\frac{N}{2}-n\rp! \cdot \lp\frac{N}{2}+n\rp!}\rp \\
+        &= \log\lp 2^N p(x=n) \rp
+    \end{align*}
+
+\subsubsection{Stirling's approximation: a way to simplify the formula}
+
+\par Plugging in Stirling's approximation to the expression in \#4 gives:
+    \begin{align*}
+        p(x=n) &= \frac{1}{2^N} \cdot \frac{\sqrt{2\pi N}}{\sqrt{2\pi \lp\frac{N}{2} + n\rp} \cdot \sqrt{2\pi \lp\frac{N}{2} - n\rp}} \cdot \frac{\lp\frac{N}{e}\rp^N}{\lp\frac{\frac{N}{2} + n}{e}\rp^{\lp\frac{N}{2} + n\rp} \cdot \lp\frac{\frac{N}{2} - n}{e}\rp^{\lp\frac{N}{2} - n\rp}}\\
+        &= \sqrt{\frac{N}{2\pi \lp\frac{N^2}{4} - n^2\rp}} \cdot \lp\frac{N}{2}\rp^N \cdot \lp\frac{N^2}{4} - n^2\rp^{-\frac{N}{2}} \cdot \lp\frac{N-2n}{N+2n}\rp^n \\
+        &= \sqrt{\frac{N}{2\pi \lp\frac{N^2}{4} - n^2\rp}} \cdot \lp1 - \frac{4n^2}{N^2}\rp^{-\frac{N}{2}} \cdot \lp1 - \frac{4n}{N+2n}\rp^n \\
+        &= \sqrt{\frac{2}{\pi N}} \cdot \lp1 - \frac{4n^2}{N^2}\rp^{-\frac{N+1}{2}} \cdot \lp1 - \frac{4n}{N+2n}\rp^n
+    \end{align*}
+    owaihgweofej0oqeh0
+
+\subsection{An abstract derivation of entropy in statistical mechanics}
+\subsubsection{A derivation}
+
+\par The probability that $E_{Sys} = E_k$ is equal to the probability that the system is in any state $\omega^S_k$ with energy $E_k$.  As there are $\exp(\sigma_{Sys}(E_k)$ states of the system with energy $E_k$, and the probability of each one is $\frac{1}{\zeta_2}\exp\lp-\frac{D_k}{\tau}\rp$, we have
+    \begin{align*}
+        p(E_{Sys} = E_k) &= \exp(\sigma_{Sys}(E_k) \cdot \frac{1}{\zeta_2} \exp \lp - \frac{E_k}{\tau} \rp \\
+        &= \frac{1}{\zeta_2} \exp \lp - \lp \frac{E_k}{\tau} - \sigma_{Sys}(E_k) \rp \rp \\
+        &= \frac{1}{\zeta_2} \exp \lp -\beta \lp E_kv - \tau \sigma_{Sys}(E_k) \rp \rp
+    \end{align*}
+    
+\subsubsection{A pause for reflection}
+
+    
+
+\end{document}
