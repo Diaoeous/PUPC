@@ -9,7 +9,7 @@
 \usepackage[inline]{asymptote}
 \usepackage{tikz}
 \usepackage[utf8]{inputenc}
-\usepackage[margin=1in]{geometry}
+\usepackage[margin=0.8in]{geometry}
 \usepackage{hyperref}
 \usepackage{fancyhdr}
 \usepackage{mathptmx}
